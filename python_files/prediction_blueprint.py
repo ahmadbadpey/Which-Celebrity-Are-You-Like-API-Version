@@ -11,7 +11,6 @@ vggface = VGGFace(model='vgg16')
 detector_obj = MTCNN()
 
 
-
 @prediction_blueprint.route('/predict', methods=['POST'])
 def index():
     image = request.get_json().get('image')
