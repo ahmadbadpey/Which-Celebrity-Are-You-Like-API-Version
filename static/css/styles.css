@@ -14,6 +14,7 @@
     url("fonts/iranyekan_numbers/woff/iranyekanwebregular(fanum).woff") format('woff'),
     url("fonts/iranyekan_numbers/svg/iranyekanwebregular(fanum).svg") format('svg');
 }
+
 @font-face {
     font-family: "pinar" ;
     font-weight: 700;
@@ -25,12 +26,21 @@
     font-weight: 400;
     src: url("fonts/pinar/pinar-400.woff2") format('woff2');
 }
+@keyframes up_down {
+    0%{
+        background-position: center center;
+    }
+    100%{
+        background-position: 50% 40%;
+    }
+}
 * {
     box-sizing: border-box;
 }
+
 body {
-    font-family: "iranyekan_numbers","iranyekan","B Yekan",sans-serif;
-    padding: 6rem;
+    font-family: "iranyekan_numbers", "iranyekan", "B Yekan", sans-serif;
+    padding: 3rem 6rem;
     background-color: lightblue;
 }
 
@@ -40,23 +50,92 @@ main {
     margin: 0 auto;
 }
 
-.dropzone {
-    border: 4px solid blueviolet;
-    color: blueviolet;
-    margin: 2rem 0;
+#upload_form {
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
+
+#upload-btn {
+    cursor: pointer;
+    /*padding: 6rem 3rem;*/
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+    background-image: url('images/upload.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50%;
+    width: 250px;
+    height: 250px;
+    animation: up_down 1s alternate infinite;
+}
+
+.dropzone {
+    border: 0;
+    padding: 0;
+}
+.dropzone .dz-preview .dz-image{
+    width: 100%;
+    height: 100%;
+}
+.dropzone .dz-preview.dz-image-preview{
+    width: 100%;
+    height: 100%;
+}
+.dropzone .dz-preview{
+    margin: 0;
+}
+.dropzone .dz-preview .dz-image{
+    border-radius: 10px;
+}
+.dropzone .dz-preview:hover .dz-details{
+    display: none;
+}
+
 h2#main-heading {
     font-size: 2em;
-    font-family: pinar,sans-serif;
+    font-family: pinar, sans-serif;
 }
-#cel_image{
+
+#cel_image {
     height: 250px;
     border-radius: 10px;
 }
-.dropzone .dz-preview.dz-image-preview{
+
+.dropzone .dz-preview.dz-image-preview {
     background-color: transparent;
 }
-.dropzone .dz-message{
+
+.dropzone .dz-message {
     font-size: 1.5rem;
     font-weight: bold;
+}
+
+#social{
+    padding: 10px;
+    margin: 20px auto;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    column-gap: 15px;
+    border-radius: 10px;
+}
+
+#social li a:link,
+#social li a:visited{
+    background-color: white;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
+#social li a:hover{
+    transform: scale(1.2);
+}
+#social li a img{
+    width: 25px;
 }

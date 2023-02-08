@@ -16,19 +16,15 @@ detector_obj = MTCNN()
 def index():
     image = request.get_json().get('image')
 
-    face = extract_face('../uploads/' + image)
-    face = face.astype('float32')
+    face = extract_face('../uploads/' + image).astype('float32')
     input_sample = np.expand_dims(face, axis=0)
     samples = preprocess_input(input_sample)
 
     pred = vggface.predict(samples)
-    # print(pred)
 
     output = utils.decode_predictions(pred)
-    # print(output)
 
     founded_person = output[0][0][0].replace("b'", "").replace("'", "")
-    # return founded_person
 
     result = {
         "success": True,
@@ -83,6 +79,7 @@ def get_best_title_wiki_page(celeb_name):
         "format": "json",
         "origin": "*"
     }
+
     best_title = None
 
     try:
@@ -126,4 +123,4 @@ def get_celeb_images(celeb_name):
         return cel_images
 
     except Exception as e:
-        print("Getting Images API request failed", e)
+        print("Getting Images API request Failed", e)
