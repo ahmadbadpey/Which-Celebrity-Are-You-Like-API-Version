@@ -7,7 +7,7 @@ from prediction_blueprint import prediction_blueprint
 
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.config['TEMPLATES_AUTO_RELOAD'] = True
-app.config['FLASK_DEBUG'] = 1
+# app.config['FLASK_DEBUG'] = 1
 
 app.register_blueprint(prediction_blueprint)
 

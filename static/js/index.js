@@ -1,15 +1,4 @@
-/*import _ from 'lodash';
 
-function component() {
-  const element = document.createElement('div');
-
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  return element;
-}
-
-document.body.appendChild(component());*/
 import Dropzone from "dropzone"
 
 import "dropzone/dist/dropzone.css";
@@ -40,9 +29,9 @@ function getPredict(image) {
         .then(r => r.text())
         .then(response => {
             console.log(response)
-            const title = response.toLowerCase()
+            // const title = response.toLowerCase()
 
-            getBestTitle(title)
+            /*getBestTitle(title)
                 .then(result => {
                     const endpoint = "https://en.wikipedia.org/w/api.php";
 
@@ -94,7 +83,7 @@ function getPredict(image) {
                         .catch(error => {
                             console.log("API request failed", error);
                         });
-                })
+                })*/
 
         })
 }
